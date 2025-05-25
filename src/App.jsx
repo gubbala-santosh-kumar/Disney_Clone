@@ -9,15 +9,14 @@ function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setFadeOut(true); // Start fade-out
+      setFadeOut(true);
 
-      // After fade-out animation (e.g. 1s), hide splash
       setTimeout(() => {
         if (videoRef.current) {
           videoRef.current.pause();
         }
         setShowSplash(false);
-      }, 1000); // Duration must match the CSS animation
+      }, 1000);
     }, 4500);
 
     return () => clearTimeout(timer);
