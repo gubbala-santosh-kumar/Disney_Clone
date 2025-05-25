@@ -11,7 +11,7 @@ const movieByGenereBaseURL = 'https://api.themoviedb.org/3/discover/movie?api_ke
 const getTrendingVideos = axios.get(movieBaseUrl+
     "/trending/all/day?api_key="+api_key);
 
-const getMoviesByGenereId = (id)=> axios.get(movieByGenereBaseURL+"&with_genres"+id);
+const getMoviesByGenereId = (id)=> axios.get(movieByGenereBaseURL+"&with_genres="+id);
 
 export default{
     getTrendingVideos,
