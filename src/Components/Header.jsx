@@ -36,7 +36,7 @@ function Header() {
                 </div>
                 <div className='md:hidden' onClick={()=>setToggle(!toggle)}>
                     <HeaderItem name={''} Icon={HiDotsVertical}/>
-                    {toggle ?<div className='absolute mt-3 bg-[#121212] border-[1px] p-3 border-gray-700 px-5 py-4'>
+                    {toggle ?<div className='absolute mt-3 bg-[#121212] border-[1px] p-3 border-gray-700 px-5 py-4 right-20'>
                         {menu.map((item, index) =>index>2&& (
                     <HeaderItem key={index} name={item.name} Icon={item.icon} />
                 ))}

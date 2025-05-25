@@ -5,12 +5,18 @@ import splashVideo from './assets/Videos/Diseny-Logo-Intro.mp4';
 function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
+    if (window.innerWidth < 768) {
+      setIsMobile(true);
+      setShowSplash(false);
+      return;
+    }
+
     const timer = setTimeout(() => {
       setFadeOut(true);
-
       setTimeout(() => {
         if (videoRef.current) {
           videoRef.current.pause();
@@ -24,7 +30,7 @@ function App() {
 
   return (
     <div className="bg-[#131520]">
-      {showSplash ? (
+      {showSplash && !isMobile ? (
         <div className={`w-full h-full transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
           <video
             ref={videoRef}
